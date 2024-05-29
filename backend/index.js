@@ -5,7 +5,6 @@ const path = require('path');
 
 const app = express();
 
-
 app.get('/',(req,res)=>{
     res.send('Hello from the server')
 })
@@ -32,7 +31,8 @@ if(!req.file){
 }
 
 //Defining the output file path
-let outputPath = path.join(__dirname,'files', `${req.file.originalname}.pdf`) 
+let outputPath = path.join(__dirname,'files', `${req.file.originalname}.pdf`);
+
     docxToPdf(req.file.path, outputPath , (err,result)=>{
         if(err){
           console.log(err);
@@ -54,8 +54,6 @@ let outputPath = path.join(__dirname,'files', `${req.file.originalname}.pdf`)
 }
   })
 
-
-
 app.listen(3000, ()=>{
-    console.log('app is listening at 3000 port ;)')
+    console.log('Server is listening at 3000 port ;)')
 });
