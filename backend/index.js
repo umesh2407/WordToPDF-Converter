@@ -2,8 +2,10 @@ const express = require('express');
 const multer = require('multer');
 const docxToPdf = require('docx-pdf');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send('Hello from the server')
